@@ -7,101 +7,78 @@
 }
 
 body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
-    background: #8a6cff;
-}
-.wrapper{
-    width: 450px;
-    padding: 25px;
-    border-radius: 7px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.06);
-    background: #fff;
+    background: #e7f2fd;
 }
 
-.wrapper .gradient-box{
+.container{
+    position: relative;
+    max-width: 1350px;
     width: 100%;
-    height: 220px;
-    border-radius: 7px;
-    background: linear-gradient(to left top, #5665e9, #a271f8);
+    margin: 50px auto;
+    padding: 20px;
 }
 
-.wrapper .row{
+.filter_buttons{
     display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-.options p{
-    font-size: 1.12rem;
-    margin-bottom: 8px;
-}
-
-.row :where(.column, button){
-    width: calc(100% /2 - 12px);
-}
-
-.options .select-box{
-    border-radius: 5px;
-    padding: 10px 15px;
-    border: 1px solid #aaa;
-}
-
-.select-box select{
-    width: 100%;
+button{
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #fff;
     border: none;
-    outline: none;
-    font-size: 1.12rem;
-    background: none;
-}
-
-.options .palette{
-    margin-left: 60px;
-}
-
-.palette input{
-    height: 41px;
-    width: calc(100% / 2 - 20px);
-}
-
-.palette input:last-child{
-    margin-left: 6px;
-}
-
-.wrapper textarea{
-    width: 100%;
-    resize: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.buttons button{
-    padding: 15px 0;
-    border: none;
-    outline: none;
-    color: #fff;
-    margin: 0 0 -15px;
-    font-size: 1.09rem;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: 0.3s ease;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
 
-.buttons .refresh{
-    background-color: #6c757d;
+button.active{
+background-color: #4070f4;
+color: #fff;
 }
 
-.buttons .refresh:hover{
-    background-color: #5f666d;
+.filterable_cards{
+    display: flex;
+    margin-top: 25px;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.buttons .copy{
-    background-color: #8a6cff;
+.card{
+    flex-grow: 1;
+    flex-basis: 300px;
+    background-color: #fff;
+    padding: 3px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
 
-.buttons .copy:hover{
-    background-color: #704dff;
+.card.hide{
+    display: none;
+}
+
+.card img{
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.card_body{
+    padding: 15px 20px 20px;
+}
+
+.card_title{
+    font-size: 20px;
+    font-weight: 500;
+    color: #333;
+}
+
+.card_text{
+    font-size: 18px;
+    color: #333;
 }

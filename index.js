@@ -1,42 +1,17 @@
-const colorInputs = document.querySelectorAll(".colors input");
-const gradientBox = document.querySelector(".gradient-box");
-const textarea = document.querySelector("textarea");
-const selectMenu = document.querySelector(".select-box select");
-const refreshBtn = document.querySelector(".refresh");
-const copyBtn = document.querySelector(".copy");
+const filterButtons = document.querySelectorAll(".filter_buttons button");
+const filterableCards = document.querySelectorAll(".filterable_cards .card");
 
-const getRandomHex = (isRandom) => {
-        const randomHex = Math.floor(Math.random() * 0xffffff).toString(16);
-        return `#${randomHex}`;
+const filterCards = (e) => {
+    document.querySelector(".active").classList.remove("active");
+    e.target.classList.add("active")
+    console.log(e);
+    filterableCards.forEach(card => {
+        card.classList.add("hide");
+        if(card.dataset.name === e.target.dataset.name || e.target.dataset.name === "all"){
+            card.classList.remove("hide")
+        }
+    })
+
 }
 
-
-
-
-
-const generateGradient = (isRandom) => {
-    if(isRandom) {
-        colorInputs[0].value = getRandomHex();
-        colorInputs[1].value = getRandomHex();
-    }
-    const gradient = `linear-gradient(${selectMenu.value}, ${colorInputs[0].value}, ${colorInputs[1].value})`;
-    gradientBox.style.background = gradient;
-    textarea.value = `background: ${gradient}`;
-    
-}
-
-const copyCode = () => {
-    navigator.clipboard.writeText(textarea.value);
-    copyBtn.innerText = "Copied Code";
-    setTimeout(() => {
-        copyBtn.innerText = "Copy Code";
-    },1000)
-}
-
-colorInputs.forEach(input => {
-    input.addEventListener("input", () => generateGradient(false));
-});
-
-selectMenu.addEventListener("change", () => generateGradient(false));
-refreshBtn.addEventListener("click", () => generateGradient(true));
-copyBtn.addEventListener("click", copyCode);
+filterButtons.forEach(button => button.addEventListener("click", filterCards))
