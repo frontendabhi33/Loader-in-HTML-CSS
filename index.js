@@ -1,17 +1,15 @@
-const filterButtons = document.querySelectorAll(".filter_buttons button");
-const filterableCards = document.querySelectorAll(".filterable_cards .card");
+const boxes = document.querySelectorAll(".box"),
+image = document.querySelector(".image");
 
-const filterCards = (e) => {
- document.querySelector(".active").classList.remove("active");
- e.target.classList.add("active");
- filterableCards.forEach(card => {
-    card.classList.add("hide");
-    if(card.dataset.name === e.target.dataset.name || e.target.dataset.name === "all") {
-        card.classList.remove("hide")
-    }
- })
-}
-
-filterButtons.forEach(button =>{
-    button.addEventListener("click", filterCards)
+boxes.forEach(box => {
+    box.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        box.classList.add("hovered");
+    })
+    box.addEventListener("dragleave", () => {
+        box.classList.remove("hovered")
+    })
+    box.addEventListener("drop", () => {
+        box.appendChild(image)
+    })
 })
