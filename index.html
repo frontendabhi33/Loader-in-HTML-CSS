@@ -8,25 +8,24 @@
     <title>Document</title>
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <script src="/Scripts/word-list.js" defer></script>
-    <script src="Scripts/index.js" defer></script>
 </head>
 
 <body>
-    <section>
-       <video src="smoke.mp4" autoplay muted></video>
-       <h1>
-        <span>A</span>
-        <span>B</span>
-        <span>H</span>
-        <span>I</span>
-        <span>S</span>
-        <span>H</span>
-        <span>E</span>
-        <span>K</span>
-       </h1>
-    </section>
+    <div class="wrapper">
+        <header>
+            <h1>QR Code Generator</h1>
+            <p>Paste a url or enter a text to create QR Code</p>
+        </header>
+        <div class="form">
+            <input type="text" placeholder="Enter text or url">
+            <button>Generate QR Code</button>
+        </div>
+        <div class="qr-code">
+            <img src="" alt="qr-code">
+        </div>
+    </div>
 
 </body>
+<script src="/index.js"></script>
 
 </html>
