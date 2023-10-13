@@ -1,101 +1,169 @@
-/* Import Google font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-* {
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
 }
 
+html {
+  font-size: 10px;
+  font-family: 'Poppins' sans-serif;
+}
 
-.main{
+body {
+  width: 100%;
   height: 100vh;
+  background-color: #eee;
+  display: flex;
+}
+
+.container {
+  width: 100%;
+  max-width: 120rem;
+  margin: auto;
+  padding: 0 1.5rem;
+}
+
+.image-gallery {
   display: grid;
-  grid-template-rows:5vh 1fr 5vh;
-  grid-template-columns: auto minmax(450px, 550px) auto;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 1.5rem;
+  grid-template-areas:
+    'img-1 img-2 img-3 img-3'
+    'img-1 img-4 img-5 img-6'
+    'img-7 img-7 img-8 img-6';
 }
 
-.main > img{
-  grid-row: 2/3;
-  grid-column: 2/3;
+.image-gallery a {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.fore{
-  grid-row: 2/3;
-  grid-column: 2/3;
-  width: 100%;
-  height: 100%;
-  background-color: #f8a198;
-  clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 0% 0%);
-}
-
-.content{
-  grid-row: 2/3;
-  grid-column: 2/3;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.title{
-  display: flex;
-  flex-direction: column;
-  margin-left: 0.6em;
-}
-
-.title h1{
+  height: 25rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
-  align-self: center;
-  margin-top: 0.4em;
-  color: #f8a198;
-  text-transform: uppercase;
-  font-size: 4.5em;
-  line-height: 0.8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 
-.title h1::after{
-  content: "";
+.image-gallery a i {
+  color: rgba(255, 255, 255, .6);
+  font-size: 3rem;
+  padding: 1rem 3rem;
+  border: 2px solid rgba(255, 255, 255, .6);
+  border-radius: .4rem;
+  z-index: 100;
+  position: relative;
+  opacity: 0;
+  transition: opacity .5s;
+}
+
+.image-gallery a::before {
+  content: '';
   position: absolute;
+  width: 100%;
   height: 100%;
-  width: .1em;
-  background-color: #f8a198;
-  right: -.35em;
-  transform: rotate(-35deg);
-
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 
-.title p:first-of-type{
-  align-self: center;
-  text-transform: uppercase;
-  font-size: 0.8em;
-  letter-spacing: .24em;
-  margin-left: 3.5em;
-  color: #f8a198;
-  opacity: 0.5;
+.image-gallery a:hover i,
+.image-gallery a:hover::before {
+  opacity: 1;
 }
 
-.title p:last-child > span{
-  font-size: 1.7em;
+.img-1 {
+  grid-area: img-1;
+  min-height: 51.5rem;
+  background-image: url('Images/img-1.jpg');
 }
 
-.foot{
-  margin: 0.8em;
-  text-transform: uppercase;
-  font-style: italic;
-  letter-spacing: -.1em;
-  font-size: 2em;
-  line-height: 1.6em;
-  color: #292929;
+.img-2 {
+  grid-area: img-2;
+  background-image: url('Images/img-2.jpg');
 }
 
-.foot h1{
-  font-weight: 900;
+.img-3 {
+  grid-area: img-3;
+  background-image: url('Images/img-3.jpg');
 }
 
-.foot h1 > span{
-  font-weight: 100;
+.img-4 {
+  grid-area: img-4;
+  background-image: url('Images/img-4.jpg');
+}
+
+.img-5 {
+  grid-area: img-5;
+  background-image: url('Images/img-5.jpg');
+}
+
+.img-6 {
+  min-height: 51.5rem;
+  grid-area: img-6;
+  background-image: url('Images/img-6.jpg');
+}
+
+.img-7 {
+  grid-area: img-7;
+  background-image: url('Images/img-7.jpg');
+}
+
+.img-8 {
+  grid-area: img-8;
+  background-image: url('Images/img-8.jpg');
+}
+
+@media screen and (max-width:900px) {
+  .image-gallery {
+    grid-template-areas:
+      'img-1 img-1 img-2 img-2'
+      'img-1 img-1 img-3 img-3'
+      'img-4 img-4 img-5 img-5'
+      'img-6 img-7 img-7 img-7'
+      'img-8 img-8 img-8 img-8';
+  }
+
+  .image-gallery a {
+    height: 20rem;
+  }
+
+  .img-1 {
+    min-height: 41.5rem;
+  }
+
+  .img-6 {
+    min-height: 20rem;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .image-gallery {
+    grid-template-areas:
+      'img-1 img-1 img-1 img-1'
+      'img-2 img-2 img-2 img-2'
+      'img-3 img-3 img-3 img-3'
+      'img-4 img-4 img-4 img-4'
+      'img-5 img-5 img-5 img-5'
+      'img-6 img-6 img-6 img-6'
+      'img-7 img-7 img-7 img-7'
+      'img-8 img-8 img-8 img-8';
+  }
+
+  .image-gallery a,
+  .img-1,
+  .img-6 {
+    min-height: 30rem;
+    height: 30rem;
+  }
+
+
 }
