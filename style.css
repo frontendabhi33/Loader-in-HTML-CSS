@@ -1,81 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
 body {
-    background-color: #644bff;
-    padding: 0 20px;
+    background-color: #282a36;
 }
 
-.wrapper {
-    max-width: 450px;
-    margin: 150px auto;
-}
-
-.wrapper .search-input {
-    position: relative;
-    background-color: #fff;
-    width: 100%;
-    border-radius: 5px;
-    box-shadow: 0 1px 5px 3px rgba(0, 0, 0, 0.12);
-}
-
-.search-input input {
-    height: 55px;
-    width: 100%;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    padding: 0 60px 0 20px;
-    font-size: 18px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-}
-
-.search-input .icon {
-    height: 55px;
-    width: 55px;
-    line-height: 55px;
+.container {
     position: absolute;
-    top: 0;
-    right: 0;
-    text-align: center;
-    color: #644bff;
-    font-size: 20px;
+    width: 300px;
+    height: 400px;
+    box-shadow: 0 0 30px #000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    border-radius: 20px;
+    background: url('/Images/img-7.jpg');
+    background-size: 100% 100%;
     cursor: pointer;
 }
 
-.search-input .autocom-box {
-    padding: 0px;
-    max-height: 280px;
-    overflow-y: auto;
-    opacity: 0;
-    pointer-events: none;
-}
-
-.search-input.active .autocom-box {
-    padding: 10px 8px;
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.autocom-box li {
-    list-style: none;
-    padding: 8px 12px;
+.one {
+    position: absolute;
     width: 100%;
-    cursor: default;
-    border-radius: 3px;
-    display: none;
+    height: 100%;
+    background: #f71b73;
+    right: -100%;
+    transition: 1.5s;
 }
 
-.search-input.active .autocom-box li {
-    display: block;
+.one div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
-.autocom-box li:hover {
-    background: #efefef;
+.one div h2,
+h1 {
+    color: #fff;
+}
+
+.two {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ddd;
+    right: -200%;
+    transition: 1.5s;
+}
+
+.container:hover .one {
+    right: 0;
+}
+
+.container:hover .two {
+    right: 100%;
 }
